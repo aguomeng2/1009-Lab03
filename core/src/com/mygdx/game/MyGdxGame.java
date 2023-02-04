@@ -43,26 +43,26 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0.15f, 0.15f, 0.4f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		shape.begin(ShapeRenderer.ShapeType.Line);
-		changeEntities(entities);
-		for (Entity e : entities){
-			if (e instanceof Collidable) {
-				shape.rect(e.getX(), e.getY(), ((Collidable) e).getBody().getHeight(), ((Collidable) e).getBody().getWidth());
-			}
-		}
-		shape.end();
 		batch.begin();
 		batch.draw(sprites.get(0), ant.getX(), ant.getY());
 		batch.draw(sprites.get(1), ant2.getX(), ant2.getY());
 		batch.draw(sprites.get(2), circle.getX(), circle.getY());
 		for (Entity e : entities){
+			if (e instanceof Collidable) {
+				shape.rect(e.getX(), e.getY(), ((Collidable) e).getBody().getHeight(),
+						((Collidable) e).getBody().getWidth());
+			}
+		}
+		for (Entity e : entities){
 			if (entities.get(count) == e){
 				e.movement();
 			}
-
 		}
+		changeEntities(entities);
 		ant.isColliding(ant2);
 		ant2.isColliding(ant);
 		batch.end();
+		shape.end();
 	}
 	
 	@Override

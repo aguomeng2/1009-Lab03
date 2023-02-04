@@ -9,6 +9,8 @@ public class Collidable<T> extends Entity<T> implements iCollidable<T> {
         super(x, y, object);
         try {
             this.body = new Rectangle(((Sprite) object).getBoundingRectangle());
+            this.body.setX(x);
+            this.body.setY(y);
         } catch (IllegalArgumentException e){
             System.out.println("Not Sprite!");
         }
