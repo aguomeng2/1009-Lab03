@@ -77,7 +77,6 @@ public class MyGdxGame extends ApplicationAdapter {
 			if (count == entities.size()){
 				count = 0;
 			}
-			System.out.println(count);
 		}
 	}
 
