@@ -30,13 +30,11 @@ public class Collidable<T> extends Entity<T> implements iCollidable<T> {
     @Override
     public void isColliding(T other){
         Entity<T> clone = (Collidable)((Collidable) other).clone();
-        if (clone instanceof Collidable) {
-            if (((Collidable) clone).getBody().overlaps(body)) {
+        if (((Collidable) clone).getBody().overlaps(body)) {
                 this.setX(prevx);
                 this.setY(prevy);
                 this.body.setX(prevx);
                 this.body.setY(prevy);
             }
-        }
         }
 }
