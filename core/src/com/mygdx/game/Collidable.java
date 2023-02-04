@@ -1,13 +1,18 @@
 package com.mygdx.game;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
+import com.sun.jdi.InvalidTypeException;
 
 public class Collidable<T> extends Entity<T> implements iCollidable<T> {
     private Rectangle body;
     private float prevx, prevy;
     public Collidable(float x, float y, T object) {
         super(x, y, object);
-        this.body = new Rectangle(((Sprite) object).getBoundingRectangle());
+        try {
+            this.body = new Rectangle(((Sprite) object).getBoundingRectangle());
+        } catch (IllegalArgumentException e){
+            System.out.println("Not Sprite!");
+        }
     }
 
     public Rectangle getBody(){
