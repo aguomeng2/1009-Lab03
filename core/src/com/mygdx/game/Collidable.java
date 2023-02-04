@@ -1,7 +1,6 @@
 package com.mygdx.game;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
-import com.sun.jdi.InvalidTypeException;
 
 public class Collidable<T> extends Entity<T> implements iCollidable<T> {
     private Rectangle body;

@@ -1,12 +1,5 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public abstract class Entity<T> implements Cloneable {
@@ -18,14 +11,6 @@ public abstract class Entity<T> implements Cloneable {
         this.y = y;
         this.object = object;
         this.brain = new Brain();
-    }
-
-    public void set(T object){
-        this.object = object;
-    }
-
-    public T get(){
-        return object;
     }
 
     public void setY(float y) {
